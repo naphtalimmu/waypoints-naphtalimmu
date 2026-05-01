@@ -5,6 +5,8 @@ namespace WayPoints
 {
     public class SearchWayPoint
     {
+        private const double MetresToFeet = 0.3048;
+
         /// <summary>
         /// Search for a waypoint by name
         /// </summary>
@@ -22,7 +24,7 @@ namespace WayPoints
                 {
                     WayPoint wp = wayPoints[keys[i]];
                     Console.WriteLine($"Type of : {wp.Elevation.GetType()}");
-                    return $"{{ {wp.Name}, {wp.Code}, pos[{wp.Longitude},{wp.Latitude}], h:{wp.Elevation * 0.3048} m, {wp.Description} }}";
+                    return $"{{ {wp.Name}, {wp.Code}, pos[{wp.Longitude},{wp.Latitude}], h:{wp.Elevation * MetresToFeet} m, {wp.Description} }}";
                 }
             }
             return null;
@@ -48,7 +50,7 @@ namespace WayPoints
                 if (name.ToLower().Contains(lowerSearchTerm))
                 {
                     WayPoint wp = wayPoints[name];
-                    results.Add($"{{ {wp.Name}, {wp.Code}, pos[{wp.Longitude},{wp.Latitude}], h:{wp.Elevation * 0.3048} m, {wp.Description} }}");
+                    results.Add($"{{ {wp.Name}, {wp.Code}, pos[{wp.Longitude},{wp.Latitude}], h:{wp.Elevation * MetresToFeet} m, {wp.Description} }}");
                 }
             }
 
