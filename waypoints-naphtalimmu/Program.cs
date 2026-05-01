@@ -30,15 +30,15 @@ namespace StarterCode_WayPoints
             Console.WriteLine("\n--- Search Results ---");
 
             // Search All WayPoints via name, return a waypoint object containing the name
-            Console.Write("Enter waypoint name to search (exact match): ");
-            string? searchName = Console.ReadLine();
+            //Console.Write("Enter waypoint name to search (exact match): ");
+            string? searchName = "Aberaeron"; // || Console.ReadLine();
 
             if (!string.IsNullOrWhiteSpace(searchName))
             {
-                WayPoint? found = SearchWayPoint.SearchByName(wayPoints, searchName);
-                if (found != null)
+                string? foundName = SearchWayPoint.SearchByName(wayPoints, searchName);
+                if (foundName != null)
                 {
-                    Console.WriteLine("Found: " + found);
+                    Console.WriteLine($"WayPoint found: {foundName}");
                 }
                 else
                 {
@@ -48,12 +48,12 @@ namespace StarterCode_WayPoints
 
             // Search All WayPoints via partialName (first n letters)
             Console.Write("\nEnter search term for partial match: ");
-            string? searchTerm = Console.ReadLine();
+            string? searchTerm = "Ab"; // Console.ReadLine();
 
             if (!string.IsNullOrWhiteSpace(searchTerm))
             {
                 Console.WriteLine($"\nSearch All WayPoints via partialName (first n letters) '{searchTerm}':");
-                List<WayPoint> partialResults = SearchWayPoint.SearchByPartialName(wayPoints, searchTerm);
+                List<string> partialResults = SearchWayPoint.SearchByPartialName(wayPoints, searchTerm);
 
                 if (partialResults.Count > 0)
                 {

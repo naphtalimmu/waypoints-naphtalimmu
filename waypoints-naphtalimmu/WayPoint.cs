@@ -23,7 +23,7 @@ namespace WayPoints
 
         public override string ToString()
         {
-            return $"WayPoint: {Name}, Code: {Code}, Position: [{Latitude}, {Longitude}], Elevation: {Elevation}m\n{Description}";
+            return $"{Name}, {Code}, pos[{Latitude}, {Longitude}], h: {Elevation}m\n{Description}";
         }
 
         public string[] ToArray()
